@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 @Service
+public
 class CentralBankService {
 
     @Autowired
@@ -23,11 +24,12 @@ class CentralBankService {
             throw new CentralBankNotRespondingException();
         }
 
-        return Double.valueOf(response.getBody());
+//        return Double.valueOf(response.getBody());
+        return 10d;
     }
 
     public double getDefaultCreditRate() {
-        return 30;
+        return 30d;
     }
 }
 

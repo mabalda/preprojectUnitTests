@@ -1,6 +1,7 @@
 package com.override.unittests.service;
 
 import com.override.unittests.enums.ClientType;
+import com.override.unittests.exception.CannotBePayedException;
 import com.override.unittests.exception.CentralBankNotRespondingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,10 +33,10 @@ public class CreditCalculator {
 
     }
 
-    public int countMonths(double amount, double monthPaymentAmount, double creditRate) {
+    private int countMonths(double amount, double monthPaymentAmount, double creditRate) {
         double amoutToPayWithPercent = amount + amount * creditRate / 100.d; //проценты за первый год
         if (monthPaymentAmount * 12 < (amoutToPayWithPercent - monthPaymentAmount * 12) * creditRate / 100.d) {
-            throw new RuntimeException("Credit " + amount + " can not be payed with monthly pay " + monthPaymentAmount);
+            throw new CannotBePayedException(amount, monthPaymentAmount);
         }
         int countMonths = 0;
         while (amoutToPayWithPercent > 0) {
