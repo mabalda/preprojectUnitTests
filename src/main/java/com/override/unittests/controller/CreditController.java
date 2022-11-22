@@ -1,4 +1,4 @@
-package com.override.unittests;
+package com.override.unittests.controller;
 
 import com.override.unittests.enums.ClientType;
 import com.override.unittests.service.CreditCalculator;
@@ -12,9 +12,8 @@ public class CreditController {
     @Autowired
     private CreditCalculator creditCalculator;
 
-
     @GetMapping("/overpayment")
     public double getOverPayment() {
-        return creditCalculator.calculateOverpayment(100000, 10000.0, ClientType.GOVERMENT);
+        return creditCalculator.calculateOverpayment(100000d, 10000d, ClientType.GOVERMENT);
     }
 }

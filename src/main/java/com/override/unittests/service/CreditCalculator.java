@@ -57,11 +57,7 @@ public class CreditCalculator {
         if (clientType == ClientType.BUSINESS) {
             return keyRate + 1d;
         }
-        if (clientType == ClientType.GOVERMENT) {
-            return keyRate;
-        }
         return keyRate;
     }
-
 }
 
