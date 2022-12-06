@@ -27,7 +27,7 @@ class CreditCalculatorTest {
 
     //многие из тестов ниже могут быть заменены на @ParameterizedTest  https://habr.com/ru/post/591007/
     @Test
-    void calculateOverpaymentGovermentTest() {
+    public void calculateOverpaymentGovermentTest() {
         when(centralBankService.getKeyRate()).thenReturn(10d);
         double amount = 100000d;
         double monthPaymentAmount = 10000d;
@@ -36,17 +36,17 @@ class CreditCalculatorTest {
     }
 
     @Test
-    void calculateOverpaymentBusinessTest() {
+    public void calculateOverpaymentBusinessTest() {
         //TODO
     }
 
     @Test
-    void calculateOverpaymentIndividualTest() {
+    public void calculateOverpaymentIndividualTest() {
         //TODO
     }
 
     @Test
-    void calculateOverpaymentOnTooBigAmountTest() {
+    public void calculateOverpaymentOnTooBigAmountTest() {
         when(centralBankService.getKeyRate()).thenReturn(10d);
         double amount = 1000000000d;
         double monthPaymentAmount = 10000d;
@@ -54,12 +54,12 @@ class CreditCalculatorTest {
     }
 
     @Test
-    void calculateOverpaymentOnManyYearCreditTest() {
+    public void calculateOverpaymentOnManyYearCreditTest() {
         //TODO тест для случая, когда кредит все таки можно выплатить, но проценты будут начисляться много лет
     }
 
     @Test
-    void calculateOverpaymentWhenNoConnectionTest() {
+    public void calculateOverpaymentWhenNoConnectionTest() {
         //TODO
     }
 }
