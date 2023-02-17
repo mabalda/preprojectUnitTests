@@ -12,6 +12,11 @@ public class CreditCalculator {
     @Autowired
     private CentralBankService centralBankService;
 
+    /**
+    * Метод рассчитывает переплату по кредиту  
+    * Начисляемые проценты рассчитываются от непогашенной задолженности.
+    * Метод считает переплату с учетом начисления процентов в начале каждого года использования кредита
+    */
     public double calculateOverpayment(double amount, double monthPaymentAmount, ClientType clientType) {
         double creditRate;
         try {
