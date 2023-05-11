@@ -31,7 +31,9 @@ public class CreditCalculator {
         double amoutToPayWithPercent = amount + amount * creditRate / 100.d; //проценты за первый год
         for (int i = 0; i < countYears; i++) {
             amoutToPayWithPercent = amoutToPayWithPercent - monthPaymentAmount * 12;
-            overPayment += amoutToPayWithPercent * creditRate / 100.d;
+            if (amoutToPayWithPercent > 0) {
+                overPayment += amoutToPayWithPercent * creditRate / 100.d;
+            }
             amoutToPayWithPercent = amoutToPayWithPercent + amoutToPayWithPercent * creditRate / 100.d;
         }
         return overPayment;
